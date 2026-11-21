@@ -74,3 +74,4 @@ pre.mermaid{background:#0b2a2a;border:1px solid var(--line);text-align:center;pa
   .top nav a:not(:last-child){display:none}
 }
 @media print{body{background:#fff;color:#000}.top,.side,.pager{display:none}}
+pre.mermaid svg{min-width:1100px;max-width:none !important;height:auto}
