@@ -1,6 +1,12 @@
-# Low-EMF Smart Villa: Design Pack
+<p align="center"><img src="docs/brand/mark.svg" width="88" height="88" alt="Quietwire logo"></p>
 
-A smart home design pack for a sample **4-bedroom wellness villa** (G+1, about 3,400 sq ft). It is written the way a Smart Home Project Manager hands work to architects, MEP consultants and integrators: decisions, reasons, schedules, budget, checklists and handover documents.
+<h1 align="center">Quietwire</h1>
+
+<p align="center"><b>A calm, wired-first smart home.</b><br>A low-EMF design pack for a 4-bedroom wellness villa: KNX + Home Assistant, from device schedule and budget to commissioning and handover.</p>
+
+<p align="center"><img src="docs/cover.jpg" alt="Quietwire cover" width="720"></p>
+
+The pack covers a sample **4-bedroom wellness villa** (G+1, about 3,400 sq ft). It is written the way a Smart Home Project Manager hands work to architects, MEP consultants and integrators: decisions, reasons, schedules, budget, checklists and handover documents.
 
 **Approach:** wellness first, wired-first and low-EMF, local control that works without the cloud, open standards (KNX, DALI-2, Modbus, Ethernet/PoE, Zigbee/Thread/Matter) with Home Assistant as the local integration hub.
 
@@ -48,3 +54,7 @@ Everything here is plain Markdown with [Mermaid](https://mermaid.js.org/) diagra
 ## License
 
 [MIT](LICENSE)
+
+---
+
+<sub>One of seven projects by [Alok Kulkarni](https://alok.is-a.dev): [Hearth](https://github.com/alok-kul5/hearth-iot) home sensors · [Headway](https://github.com/alok-kul5/headway-transit) transit data · [Vigil](https://github.com/alok-kul5/vigil-soc) security triage · [Loupe](https://github.com/alok-kul5/loupe-vision) defect inspection · [Kharcha](https://github.com/alok-kul5/kharcha-finance) personal finance · [Stockroom](https://github.com/alok-kul5/stockroom-inventory) inventory · **Quietwire** smart home design.</sub>
