@@ -1,0 +1,7 @@
+{
+  "name": "quietwire-site",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node site/build.mjs" },
+  "devDependencies": { "marked": "12.0.2" }
+}
