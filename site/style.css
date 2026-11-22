@@ -3,12 +3,12 @@
   --surface: #d3cec6;
   --paper: #e4e3df;
   --ink: #0e0e0d;
-  --muted: #55514b;
+  --muted: #3b3833;
   --accent: #256f82;
   --accent-ink: #ffffff;
   --field: #161614;
   --field-ink: #e7e6e2;
-  --field-muted: #aaa49b;
+  --field-muted: #cfc9bf;
 
   --step-small: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
   --step-body: clamp(1.0625rem, 1.02rem + 0.2vw, 1.1875rem);
