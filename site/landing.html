@@ -1,121 +1,143 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8">
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Quietwire · A calm, wired-first smart home</title>
-<meta name="description" content="A low-EMF smart home design pack for a four-bedroom wellness villa: KNX and Home Assistant, from device schedule and budget to commissioning and handover.">
+<meta name="description" content="A smart home design pack for a four-bedroom wellness villa: wired first, radio only where it must be, and run locally. Protocols, devices, budget, checklists and handover.">
 <meta property="og:title" content="Quietwire · A calm, wired-first smart home">
-<meta property="og:description" content="A low-EMF smart home design pack for a four-bedroom wellness villa.">
+<meta property="og:description" content="A smart home design pack for a four-bedroom wellness villa, from protocols and budget to handover.">
 <meta property="og:image" content="assets/cover.jpg">
-<meta name="theme-color" content="#e9f1ee">
+<meta name="theme-color" content="#dedad3">
 <link rel="icon" href="assets/mark.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@100,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
-<script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="home">
 
-<header class="hero" id="top">
-  <div class="hero-tl">
-    <p>A calm, wired-first smart home. The design pack for a four-bedroom villa, ready for architects, MEP and integrators.</p>
-    <a class="btn" href="01-overview-and-principles.html">Read the proposal</a>
-  </div>
-  <nav class="hero-tr" aria-label="Main">
-    <a href="#day">A day in the villa</a><a href="#pack">The pack</a><a href="06-bill-of-materials.html">Budget</a>
-  </nav>
-  <h1 class="name" id="name">Quietwire</h1>
-  <p class="hero-bl">Four-bedroom wellness villa, G+1, 3,400 sq ft</p>
-  <nav class="hero-br" aria-label="Elsewhere"><a href="https://github.com/alok-kul5/quietwire-villa">Source</a><a href="https://alok.is-a.dev">Alok Kulkarni</a></nav>
-  <img class="hero-pic" src="img/switchboard.jpg" width="1920" height="2880" alt="A field telephone switchboard, rows of sockets and cords" decoding="async">
+<header class="bar">
+  <a class="wm" href="#top" aria-label="Quietwire, back to top">Quietwire</a>
+  <nav aria-label="Main"><a href="#day">A day</a><a href="#pack">The pack</a><a href="06-bill-of-materials.html">Budget</a></nav>
+  <a class="btn" href="01-overview-and-principles.html">Read the pack</a>
 </header>
 
-<section class="live" id="day" aria-labelledby="live-h">
-  <div class="plate" id="plate" aria-hidden="true"><span id="plate-time">21:30</span><small id="plate-k">2500 K</small></div>
-  <div class="live-body">
-    <h2 id="live-h" class="rv">Drag the day. Watch the villa change.</h2>
-    <p class="rv">This is the design running on one ordinary day. Move the clock and read what the living room light, the bedroom Wi-Fi, the ventilation and the water valve are doing. It is the schedule from the subsystem design, not a simulation of a product.</p>
-    <label class="slider rv" for="clock"><span>Time of day</span>
-      <input id="clock" type="range" min="0" max="1439" step="10" value="1290" aria-describedby="readout">
-    </label>
-    <dl class="readout rv" id="readout" aria-live="polite">
-      <div><dt>Lighting</dt><dd id="r-light">Warm and dim, 2500 K at 25%</dd></div>
-      <div><dt>Wi-Fi</dt><dd id="r-wifi">Living and outdoor on, lounge and study on</dd></div>
-      <div><dt>Ventilation</dt><dd id="r-air">ERV at low, CO2 under 800 ppm</dd></div>
-      <div><dt>Water</dt><dd id="r-water">Main valve open, flow monitored</dd></div>
-      <div><dt>Security</dt><dd id="r-sec">Home mode, perimeter cameras recording</dd></div>
-    </dl>
-    <noscript><p>Without script: from 23:00 to 06:00 the lounge and study access points are off, the lights stay at about 4% and 2200 K, and a night flow limit is armed on the water valve.</p></noscript>
+<main>
+<section class="hero" id="top">
+  <div class="rail">
+    <figure class="p-sq" data-in><img src="img/bedside-sq.jpg" width="900" height="900" alt="A cup on a bedside table beside white bedding"></figure>
+    <figure class="p-tall shutter"><img src="img/stair-tall.jpg" width="900" height="1200" alt="A narrow opening in a white wall onto a white stair"><figcaption>Bedrooms carry no Wi-Fi access point.</figcaption></figure>
+    <figure class="p-wide" data-in><img src="img/gallery-wide.jpg" width="1920" height="1200" alt="A low concrete and glass gallery reflected in still water at dusk"><figcaption>Every device answers to one rack room.</figcaption></figure>
+  </div>
+  <div class="hero-text">
+    <h1 data-in>A calm house, wired quietly</h1>
+    <p data-in>Quietwire is a smart home design for a four-bedroom wellness villa: wired first, radio only where it must be, and run inside the house.</p>
   </div>
 </section>
 
-<section class="poster" aria-labelledby="poster-h">
-  <h2 id="poster-h" class="sr">What the design covers</h2>
-  <ul>
-    <li><a href="03-subsystems.html#31-circadian-lighting"><span>Light</span><em>2200 to 5000 K</em></a></li>
-    <li><a href="03-subsystems.html#32-climate-and-erv-ventilation"><span>Air</span><em>CO2 held under 1,000 ppm</em></a></li>
-    <li><a href="03-subsystems.html#33-water-quality-and-leak-protection"><span>Water</span><em>Shut-off on the first leak</em></a></li>
-    <li><a href="03-subsystems.html#34-energy-monitoring"><span>Energy</span><em>8 circuits metered</em></a></li>
-    <li><a href="03-subsystems.html#35-security-and-access"><span>Access</span><em>Cameras recorded at home</em></a></li>
-    <li><a href="03-subsystems.html#36-network-and-rack-room"><span>Network</span><em>6 VLANs, 4 PoE access points</em></a></li>
-  </ul>
+<section class="intro" aria-labelledby="intro-h">
+  <h2 id="intro-h" class="cross" data-in><span>Wired before</span> <span>the walls</span></h2>
+  <figure class="intro-big"><img src="img/steps-tall.jpg" width="800" height="1000" alt="A person sitting on wide stone steps beside a pale wall" loading="lazy"></figure>
+  <p class="intro-p" data-in>Most smart homes arrive after the plaster dries, so they lean on radio. Quietwire is drawn with the architect, so the quiet choices are built in.</p>
+  <figure class="intro-small" data-in><img src="img/cable.jpg" width="720" height="900" alt="The cut end of a Cat5e cable showing its twisted pairs" loading="lazy"><figcaption>One cable to each device, labelled at both ends.</figcaption></figure>
 </section>
 
-<section class="split" aria-labelledby="cable-h">
-  <div class="split-pic"><img src="img/cat5e-cable.jpg" width="1920" height="1920" alt="The cut end of a CAT5e cable showing its twisted pairs" loading="lazy" decoding="async"></div>
-  <div class="split-text">
-    <h2 id="cable-h">The cable you cannot add later</h2>
-    <div class="tabs" role="tablist" aria-label="Decisions that cannot wait">
-      <button role="tab" aria-selected="true" aria-controls="tp" id="t1">Conduit</button>
-      <button role="tab" aria-selected="false" aria-controls="tp" id="t2" tabindex="-1">Neutral</button>
-      <button role="tab" aria-selected="false" aria-controls="tp" id="t3" tabindex="-1">Rack room</button>
+<section class="index" aria-labelledby="index-h">
+  <h2 id="index-h">What is in it</h2>
+  <div class="cols">
+    <div class="col" data-in>
+      <h3>Light and air</h3>
+      <ul>
+        <li data-d="44 lighting zones on DALI-2 drivers, tunable from 2200 to 5000 K and dimmable to 1%.">Tunable-white lighting</li>
+        <li data-d="Warm and dim from the evening, a night path only after eleven, never cool white at night.">Circadian schedule</li>
+        <li data-d="Six wired nodes measure CO2, PM2.5 and VOCs where people sleep and work.">Air-quality nodes</li>
+        <li data-d="The ERV brings in fresh air and holds bedrooms near 800 ppm CO2 at night.">Heat-recovery ventilation</li>
+        <li data-d="Kitchen extract boosts with make-up air while PM2.5 is watched.">Kitchen extract</li>
+        <li data-d="KNX keypads with real buttons in every room. They work with no hub and no app.">Wired keypads</li>
+      </ul>
     </div>
-    <div id="tp" role="tabpanel" aria-labelledby="t1">
-      <p id="tp-text">Separate routes for mains, KNX and Cat6A, at least one spare 25 mm conduit per floor riser, and sleeves through beams marked before the slab is cast. Late conduit costs many times more than early conduit.</p>
+    <div class="col" data-in>
+      <h3>Water and energy</h3>
+      <ul>
+        <li data-d="Eight leak sensors and one motorised valve that closes on the first leak, without the cloud.">Leak shut-off</li>
+        <li data-d="Dissolved solids measured after the RO filter, so a worn membrane shows before it tastes wrong.">Water quality</li>
+        <li data-d="Continuous flow at night closes the main valve on its own.">Night flow limit</li>
+        <li data-d="HVAC, ventilation, kitchen, geyser, EV charger and solar each on their own meter, read over Modbus.">Circuit metering</li>
+        <li data-d="The geyser and the EV charge when the solar panels have power to spare.">Solar-surplus loads</li>
+      </ul>
     </div>
-    <div class="cells"><a class="cell ink" href="07-design-coordination-checklist.html">Coordination checklist</a><a class="cell" href="05-device-schedule.html">Device schedule</a></div>
+    <div class="col" data-in>
+      <h3>Network and safety</h3>
+      <ul>
+        <li data-d="Six VLANs keep cameras, controls, guests and the family apart.">Six VLANs</li>
+        <li data-d="Four PoE access points in shared rooms; bedrooms get two wired outlets instead.">Four access points</li>
+        <li data-d="Lounge and study access points switch off overnight; wired jacks stay live.">Wi-Fi off at night</li>
+        <li data-d="Six PoE cameras outside only, recorded on a drive in the rack room with no cloud required.">Local recording</li>
+        <li data-d="Home Assistant runs on a small server in the rack room and ties it all together.">Home Assistant hub</li>
+      </ul>
+    </div>
+    <p class="desc" aria-live="polite">Hover a name to read what it means in this villa.</p>
   </div>
 </section>
 
-<section class="figures" aria-labelledby="fig-h">
-  <div class="figures-in">
-    <h2 id="fig-h" class="rv">The villa in figures</h2>
-    <dl>
-      <div class="rv"><dt>44</dt><dd>tunable-white light zones on DALI-2, 2200 to 5000 K, with dim-to-1% drivers.</dd></div>
-      <div class="rv"><dt>0</dt><dd>Wi-Fi access points inside bedrooms. Two cable outlets in each one instead.</dd></div>
-      <div class="rv"><dt>6</dt><dd>wired air-quality nodes measuring CO2, PM2.5 and VOC where people sleep and work.</dd></div>
-      <div class="rv"><dt>8</dt><dd>leak sensors and one motorised valve that closes without the cloud.</dd></div>
-      <div class="rv"><dt>16</dt><dd>months from brief to handover, with a design gate before the slab is cast.</dd></div>
-    </dl>
+<section class="day" id="day" aria-labelledby="day-h">
+  <div class="day-top">
+    <h2 id="day-h">A day in the villa</h2>
+    <div class="arrows"><button class="sq" data-dir="-1" aria-label="Earlier">←</button><button class="sq" data-dir="1" aria-label="Later">→</button></div>
   </div>
-  <div class="figures-pic"><figure><video src="img/taps.webm" poster="img/taps-poster.jpg" width="854" height="480" autoplay muted loop playsinline preload="none" aria-label="Water running from taps"></video><figcaption>Water from a tap: what the valve protects.</figcaption></figure><figure><img src="img/stepwell.jpg" width="1920" height="1280" alt="A stepwell in Rajasthan, stone steps descending to still water" loading="lazy" decoding="async"><figcaption>A stepwell in Rajasthan. Water kept and measured for centuries.</figcaption></figure></div>
+  <div class="track" aria-hidden="true"><span id="track-fill"></span></div>
+  <ol class="row" id="row" tabindex="0" aria-label="The villa's schedule through one day, scroll sideways">
+    <li data-in data-h="6.5" style="--gap:96px"><b>06:30 · Waking light</b><p>Bedroom lights rise from a 4% night path towards 2700 K, the way a morning would.</p><img src="img/d-bedside.jpg" width="640" height="800" alt="White bedding and a cup on a bedside table in morning light" loading="lazy"></li>
+    <li data-in data-h="8" style="--gap:40px"><b>08:00 · Breakfast</b><p>The kitchen extract boosts with make-up air. PM2.5 is watched until the air settles.</p><img src="img/d-dining.jpg" width="640" height="800" alt="A wooden dining table and white chairs beside tall windows" loading="lazy"></li>
+    <li data-in data-h="13" style="--gap:132px"><b>13:00 · Full daylight</b><p>Lights harvest daylight at 5000 K. The ERV runs low and checks outdoor PM2.5 before it lets air in.</p><img src="img/d-stair.jpg" width="640" height="800" alt="Daylight on a white stair through a narrow opening" loading="lazy"></li>
+    <li data-in data-h="18.5" style="--gap:64px"><b>18:30 · Warming down</b><p>Light falls to 3000 K at 60%. A keypad press always wins, then the schedule returns.</p><img src="img/d-gallery.jpg" width="640" height="800" alt="Warm light inside a glass gallery at dusk" loading="lazy"></li>
+    <li data-in data-h="21.3" style="--gap:112px"><b>21:16 · A tap left running</b><p>Flow and TDS are watched. On a leak the valve closes at once and the phone is told.</p><video src="img/taps.webm" poster="img/d-taps-poster.jpg" width="640" height="800" muted loop playsinline preload="none" aria-label="Water running from two taps"></video></li>
+    <li data-in data-h="23" style="--gap:48px"><b>23:00 · Night</b><p>Lounge and study Wi-Fi switch off. Bedrooms hold near 800 ppm CO2 on a quiet boost.</p><img src="img/d-window.jpg" width="640" height="800" alt="A dark room with a window onto trees at night" loading="lazy"></li>
+    <li data-in data-h="2" style="--gap:120px"><b>02:00 · The rack room</b><p>One labelled cable from every device ends here, on a UPS. It keeps working if the internet does not.</p><img src="img/d-rack.jpg" width="640" height="800" alt="The back of a network patch panel with bundled cables" loading="lazy"></li>
+  </ol>
 </section>
 
 <section class="pack" id="pack" aria-labelledby="pack-h">
-  <div class="pack-in">
-    <h2 id="pack-h" class="rv">The pack, section by section</h2>
-    <ol class="rv">{{DOCS}}</ol>
+  <h2 id="pack-h">Eleven documents, one house</h2>
+  <div class="pack-body">
+    <p class="pack-word">Contents</p>
+    <ul class="rows">{{DOCS}}</ul>
+    <figure class="pack-pic" data-in><img src="img/d-window.jpg" width="640" height="800" alt="A dark room with a window onto trees" loading="lazy"></figure>
   </div>
-  <figure class="pack-pic"><img src="img/switchboard.jpg" width="1920" height="2880" alt="A field telephone switchboard, rows of sockets and cords" loading="lazy" decoding="async"><figcaption>A field telephone switchboard. Every line comes home to one board, which is how the rack room works.</figcaption></figure>
+  <p class="budget" data-in>The whole scope comes to roughly ₹27 to 53 lakh with contingency, about USD 31,000 to 60,000. <a href="06-bill-of-materials.html">See the budget line by line</a>.</p>
 </section>
 
-<section class="band" aria-label="A house open to its climate">
-  <img src="img/tropical-home.jpg" width="1920" height="1336" alt="The Florida Tropical Home at the 1933 Chicago World's Fair, a low house with deep porches" loading="lazy" decoding="async">
-  <p>The 1933 Florida Tropical Home, built to live with its climate. Quietwire keeps that openness and puts the wiring behind the walls.</p>
+<section class="ask" aria-labelledby="ask-h">
+  <h2 id="ask-h" class="vh">Read the pack</h2>
+  <p data-in>Start with the brief and the assumed plan, or go straight to what it costs.</p>
+  <div class="ask-row" data-in><a class="btn" href="01-overview-and-principles.html">Read the pack</a><a href="06-bill-of-materials.html">See the budget</a></div>
 </section>
+</main>
 
-<section class="close" aria-labelledby="close-h">
-  <h2 id="close-h">Wire it quiet.</h2>
-  <div class="close-row"><p>Start with the brief and the assumed plan, or go straight to the budget. Prices are estimates, the design is yours to adapt.</p><a class="btn" href="01-overview-and-principles.html">Read the proposal</a></div>
-</section>
-
-<footer class="foot-big">
-  <p class="foot-note">A design exercise on an assumed building, not a certified construction document. Low-EMF means fewer always-on radio sources near where people sleep, not a health claim.</p>
-  <svg class="name2" viewBox="0 0 1000 214" aria-hidden="true"><text x="4" y="176" font-size="226" textLength="992" lengthAdjust="spacingAndGlyphs">Quietwire</text></svg>
+<footer class="foot">
+  <p class="foot-wm" aria-hidden="true">Quietwire</p>
   <div class="foot-row">
-    <ul class="places"><li><a href="https://github.com/alok-kul5/quietwire-villa">github.com/alok-kul5/quietwire-villa</a></li><li><a href="https://alok.is-a.dev">alok.is-a.dev</a></li></ul>
-    <p class="credits">{{CREDITS}}</p>
+    <ul class="places">
+      <li><a href="https://github.com/alok-kul5/quietwire-villa">Source on GitHub</a></li>
+      <li><a href="https://alok.is-a.dev">Alok Kulkarni</a></li>
+    </ul>
+    <div class="foot-links">
+      <a href="01-overview-and-principles.html">Overview</a>
+      <a href="02-protocols-and-platforms.html">Protocols</a>
+      <a href="05-device-schedule.html">Devices</a>
+      <a href="06-bill-of-materials.html">Budget</a>
+      <a href="08-commissioning-checklist.html">Commissioning</a>
+      <a href="09-resident-quick-guide.html">Resident guide</a>
+    </div>
   </div>
-  <div class="foot-last"><span>MIT licence. One of seven projects by Alok Kulkarni.</span><a href="#top">Back to top</a></div>
+  <p class="credits">{{CREDITS}}</p>
+  <div class="foot-last"><span>A design exercise on an assumed building, not a certified construction document. Low-EMF means fewer always-on radios near where people sleep, not a health claim. MIT licence.</span><a href="#top">Back to top</a></div>
 </footer>
-<script src="assets/live.js"></script>
-</body></html>
+
+<script src="assets/live.js" defer></script>
+</body>
+</html>

@@ -39,20 +39,20 @@ const head = (title, desc) => `<!doctype html><html lang="en"><head><meta charse
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
-<meta property="og:image" content="assets/cover.jpg"><meta name="theme-color" content="#e9f1ee">
+<meta property="og:image" content="assets/cover.jpg"><meta name="theme-color" content="#dedad3">
 <link rel="icon" href="assets/mark.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com"><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet"><link href="https://api.fontshare.com/v2/css?f[]=zodiak@100,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css"></head>`;
 
 const nav = () => `<header class="top"><a class="brand" href="index.html"><img src="assets/mark.svg" alt="" width="32" height="32"><span>Quietwire</span></a>
-<nav><a href="index.html#pack">The pack</a><a href="${slug(files[5])}">Budget</a><a href="https://github.com/alok-kul5/quietwire-villa">Source</a></nav></header>`;
+<nav><a href="index.html#day">A day</a><a href="index.html#pack">The pack</a><a href="${slug(files[5])}">Budget</a><a href="https://github.com/alok-kul5/quietwire-villa">Source</a></nav></header>`;
 
 const footer = `<footer class="foot"><p>Quietwire is a design exercise on an assumed building, not a certified construction document. Prices are rough estimates.</p>
 <p>One of seven projects by <a href="https://alok.is-a.dev">Alok Kulkarni</a> · <a href="https://github.com/alok-kul5/quietwire-villa">Source on GitHub</a> · MIT</p></footer>`;
 
 const mermaidScript = `<script type="module">
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.esm.min.mjs";
-mermaid.initialize({startOnLoad:true,theme:"base",themeVariables:{background:"#f4f9f7",primaryColor:"#d5e6e1",primaryTextColor:"#072827",primaryBorderColor:"#0f766e",lineColor:"#0f766e",secondaryColor:"#e9f1ee",tertiaryColor:"#f4f9f7",clusterBkg:"#e9f1ee",clusterBorder:"#0f766e",edgeLabelBackground:"#f4f9f7",fontFamily:"Bricolage Grotesque, Segoe UI, sans-serif"}});
+mermaid.initialize({startOnLoad:true,theme:"base",themeVariables:{background:"#e8e5df",primaryColor:"#dedad3",primaryTextColor:"#0e0e0d",primaryBorderColor:"#55514b",lineColor:"#256f82",secondaryColor:"#d3cec6",tertiaryColor:"#e8e5df",clusterBkg:"#e8e5df",clusterBorder:"#a9a298",edgeLabelBackground:"#e8e5df",fontFamily:"Hanken Grotesk, Segoe UI, sans-serif"}});
 </script>`;
 
 docs.forEach((d, i) => {
@@ -71,8 +71,9 @@ ${footer}${html.includes('class="mermaid"') ? mermaidScript : ''}</body></html>`
   fs.writeFileSync(path.join(out, slug(d.f)), page);
 });
 
-const credits = 'Pictures: <a href="https://commons.wikimedia.org/w/index.php?curid=29934190">Field telephone switchboard</a> by Daderot, CC0; <a href="https://commons.wikimedia.org/w/index.php?curid=164180456">Florida Tropical Home, 1933</a> by Steve Shook, CC BY 2.0; <a href="https://commons.wikimedia.org/w/index.php?curid=7615079">CAT5e Cable</a> by Richard Wheeler (Zephyris), CC BY-SA 3.0; <a href="https://commons.wikimedia.org/w/index.php?curid=49777682">3 step stepwell</a> by Alice.surabhikumawat, CC BY-SA 4.0. Video: <a href="https://commons.wikimedia.org/wiki/File:Video_of_water_flowing_from_taps.webm">Video of water flowing from taps</a> by Gpkp, CC BY-SA 4.0. All via Wikimedia Commons.';
-const list = docs.map(d => `<li class="rv"><a href="${slug(d.f)}"><b>${esc(d.title)}</b><span>${esc(d.lead.slice(0, 120))}${d.lead.length > 120 ? '…' : ''}</span></a></li>`).join('');
+const credits = 'Pictures: <a href="https://commons.wikimedia.org/w/index.php?curid=36459918">Langen Foundation, Hombroich</a> by Anil Öztas, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/w/index.php?curid=7615079">CAT5e Cable</a> by Richard Wheeler (Zephyris), CC BY-SA 3.0; video <a href="https://commons.wikimedia.org/wiki/File:Video_of_water_flowing_from_taps.webm">Water flowing from taps</a> by Gpkp, CC BY-SA 4.0, all via Wikimedia Commons; <a href="https://www.flickr.com/photos/84816487@N00/2261404199">Ethernet Patch Panel, Rear</a> by dmitrybarsky, CC BY 2.0, via Flickr; stair, stone steps, bedside, dining room and window by Todd Quackenbush, Elisabetta Foco, David Mao, Breather and Martin Wessely via Unsplash.';
+const KINDS = ['Brief','Decide','Design','Design','Design','Budget','Before the slab','Testing','Handover','Handover','Plan'];
+const list = docs.map((d, i) => `<li><a href="${slug(d.f)}"><span class="k">${KINDS[i] || ''}</span><span class="t">${esc(d.title)}<small>${esc(d.lead)}</small></span><span class="ar" aria-hidden="true">→</span></a></li>`).join('');
 const tpl = fs.readFileSync(path.join(import.meta.dirname, 'landing.html'), 'utf8').replace('{{DOCS}}', list).replace('{{CREDITS}}', credits);
 fs.writeFileSync(path.join(out, 'index.html'), tpl);
 console.log(`built ${docs.length + 1} pages`);
